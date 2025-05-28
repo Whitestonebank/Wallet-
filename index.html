@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sarah Hilton's Crypto Wallet</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="login-screen" id="login-screen">
+  <h2>Login to Your Wallet</h2>
+  <input type="text" id="username" placeholder="Username" autocomplete="username" />
+  <input type="password" id="password" placeholder="Password" autocomplete="current-password" />
+  <button id="login-btn">Login</button>
+  <p class="login-error" id="login-error"></p>
+</div>
+
+<div class="wallet-screen hidden" id="wallet-screen">
+  <header>
+    <h1>Sarah Hilton's Crypto Wallet</h1>
+  </header>
+
+  <section class="total-balance-section">
+    <h2>Total Balance</h2>
+    <div class="total-balance" id="total-balance">$0.00</div>
+    <button class="transfer-btn transfer-out" id="transfer-out-total">Transfer Out</button>
+  </section>
+
+  <section class="coins-section" id="coins-section">
+    <!-- Coins will be injected here -->
+  </section>
+
+  <!-- Transfer modal -->
+  <div class="modal hidden" id="transfer-modal">
+    <div class="modal-content">
+      <span class="close" id="modal-close">&times;</span>
+      <h3 id="modal-title">Transfer</h3>
+      <form id="transfer-form">
+        <div class="form-group">
+          <label for="transfer-amount">Amount</label>
+          <input type="number" id="transfer-amount" min="0.01" step="0.01" required />
+        </div>
+        <div class="form-group" id="network-group" style="display:none;">
+          <label for="transfer-network">Network</label>
+          <select id="transfer-network">
+            <option>Ethereum</option>
+            <option>Binance Smart Chain</option>
+            <option>Solana</option>
+            <option>Polygon</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="wallet-address">Wallet Address</label>
+          <input type="text" id="wallet-address" required />
+        </div>
+        <p class="fee-info" id="fee-info"></p>
+        <button type="submit" id="submit-transfer-btn">Send</button>
+      </form>
+      <p class="transfer-message" id="transfer-message"></p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
